@@ -1,6 +1,8 @@
 import "./QuestionPage.css";
 import questionData from "./QuestionData.json";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 function QuestionPage() {
   const [trivia, setTrivia] = useState(questionData);
@@ -37,22 +39,46 @@ function QuestionPage() {
   }, []); */
 
   return (
-    <div className="QuestionPage h-100" style={background}>
-      <div className="">
-        <div>
-          <button>X</button>
-        </div>
-        <div className="">
+    <div
+      className="QuestionPage h-100 p-3 d-flex flex-column align-items-center"
+      style={background}
+    >
+      <div className="w-100 mb-3 d-flex justify-content-between align-items-center">
+        <Link
+          className="d-flex justify-content-center"
+          style={{ width: "45px", height: "45px" }}
+        >
+          <Button className="w-100 h-100">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-list"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+              />
+            </svg>
+          </Button>
+        </Link>
+
+        <div className="d-flex flex-column align-items-center ">
           <label for="q-count">Question</label>
           <h2 id="q-count">1/10</h2>
         </div>
-        <div className="">
-          <label for="q-count">Question</label>
+
+        <div className="d-flex flex-column align-items-center ">
+          <label for="q-count">Time Left</label>
           <h2 id="q-count">5:00</h2>
         </div>
       </div>
 
-      <h1>Random Trivia Questions</h1>
+      <h1 className="d-inline bg-light rounded text-center p-2">
+        {trivia[questionNumber].question.text}
+      </h1>
     </div>
   );
 }
