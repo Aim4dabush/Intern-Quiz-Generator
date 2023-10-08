@@ -2,7 +2,7 @@ import "./QuestionPage.css";
 import questionData from "./QuestionData.json";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 
 function QuestionPage() {
   const [trivia, setTrivia] = useState(questionData);
@@ -14,10 +14,31 @@ function QuestionPage() {
     backgroundSize: "cover",
   };
 
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
+
+  //assemble incorrect answers in random order
   const rightAnswerPosition = Math.floor(Math.random() * 4);
 
-  const answers = [];
-  for (let i = 0; i < 4; i++) {}
+  let answers = [];
+  trivia[questionNumber].incorrectAnswers.map((data) => {
+    answers.push(data);
+  });
+  shuffleArray(answers);
+
+  //randomly add correct answer
+  if (rightAnswerPosition != 3) {
+    answers.push(answers[rightAnswerPosition]);
+    answers[rightAnswerPosition] = trivia[questionNumber].correctAnswer;
+  } else {
+    answers.push(trivia[questionNumber].correctAnswer);
+  }
 
   /* useEffect(() => {
     // Define the API endpoint and query parameters
@@ -58,12 +79,12 @@ function QuestionPage() {
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"
-              fill="currentColor"
-              class="bi bi-list"
+              fillRule="currentColor"
+              className="bi bi-list"
               viewBox="0 0 16 16"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
               />
             </svg>
@@ -71,12 +92,12 @@ function QuestionPage() {
         </Link>
 
         <div className=" ">
-          <label for="q-count">Question</label>
+          <label htmlFor="q-count">Question</label>
           <h2 id="q-count">1/10</h2>
         </div>
 
         <div className=" ">
-          <label for="q-count">Time Left</label>
+          <label htmlFor="q-count">Time Left</label>
           <h2 id="q-count">5:00</h2>
         </div>
       </div>
@@ -85,26 +106,24 @@ function QuestionPage() {
         {trivia[questionNumber].question.text}
       </h1>
 
-      <table className="w-100 ">
-        <tr>
-          <td>
-            <Button className="w-100 h-100">
-              {trivia[questionNumber].incorrectAnswers[0]}
-            </Button>
-          </td>
-          <td>
-            <Button className="w-100 h-100"></Button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <Button className="w-100 h-100"></Button>
-          </td>
-          <td>
-            <Button className="w-100 h-100"></Button>
-          </td>
-        </tr>
-      </table>
+      <Container>
+        <Row>
+          <Col>
+            <Button className="w-100 h-100">{answers[0]}</Button>
+          </Col>
+          <Col>
+            <Button className="w-100 h-100">{answers[0]}</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button className="w-100 h-100">{answers[0]}</Button>
+          </Col>
+          <Col>
+            <Button className="w-100 h-100">{answers[0]}</Button>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
