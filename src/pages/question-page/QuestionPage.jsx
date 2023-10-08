@@ -14,6 +14,11 @@ function QuestionPage() {
     backgroundSize: "cover",
   };
 
+  const rightAnswerPosition = Math.floor(Math.random() * 4);
+
+  const answers = [];
+  for (let i = 0; i < 4; i++) {}
+
   /* useEffect(() => {
     // Define the API endpoint and query parameters
     const apiUrl = "https://the-trivia-api.com/v2/questions";
@@ -43,7 +48,7 @@ function QuestionPage() {
       className="QuestionPage h-100 p-3 d-flex flex-column align-items-center"
       style={background}
     >
-      <div className="w-100 mb-3 d-flex justify-content-between align-items-center">
+      <div className="w-100 mb-3 flex-row justify-content-between ">
         <Link
           className="d-flex justify-content-center"
           style={{ width: "45px", height: "45px" }}
@@ -65,12 +70,12 @@ function QuestionPage() {
           </Button>
         </Link>
 
-        <div className="d-flex flex-column align-items-center ">
+        <div className=" ">
           <label for="q-count">Question</label>
           <h2 id="q-count">1/10</h2>
         </div>
 
-        <div className="d-flex flex-column align-items-center ">
+        <div className=" ">
           <label for="q-count">Time Left</label>
           <h2 id="q-count">5:00</h2>
         </div>
@@ -79,6 +84,27 @@ function QuestionPage() {
       <h1 className="d-inline bg-light rounded text-center p-2">
         {trivia[questionNumber].question.text}
       </h1>
+
+      <table className="w-100 ">
+        <tr>
+          <td>
+            <Button className="w-100 h-100">
+              {trivia[questionNumber].incorrectAnswers[0]}
+            </Button>
+          </td>
+          <td>
+            <Button className="w-100 h-100"></Button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <Button className="w-100 h-100"></Button>
+          </td>
+          <td>
+            <Button className="w-100 h-100"></Button>
+          </td>
+        </tr>
+      </table>
     </div>
   );
 }
