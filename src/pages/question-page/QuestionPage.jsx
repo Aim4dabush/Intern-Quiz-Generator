@@ -6,6 +6,12 @@ function QuestionPage() {
   const [trivia, setTrivia] = useState(questionData);
   const [questionNumber, setQuestionNumber] = useState(0);
 
+  const background = {
+    backgroundImage: 'url("/src/assets/images/cool-background.png")',
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  };
+
   /* useEffect(() => {
     // Define the API endpoint and query parameters
     const apiUrl = "https://the-trivia-api.com/v2/questions";
@@ -31,7 +37,7 @@ function QuestionPage() {
   }, []); */
 
   return (
-    <div className="QuestionPage">
+    <div className="QuestionPage h-100" style={background}>
       <div className="">
         <div>
           <button>X</button>
@@ -45,6 +51,7 @@ function QuestionPage() {
           <h2 id="q-count">5:00</h2>
         </div>
       </div>
+
       <h1>Random Trivia Questions</h1>
     </div>
   );
