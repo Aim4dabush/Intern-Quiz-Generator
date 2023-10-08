@@ -1,10 +1,12 @@
 import "./QuestionPage.css";
+import questionData from "./QuestionData.json";
 import React, { useEffect, useState } from "react";
 
 function QuestionPage() {
-  const [trivia, setTrivia] = useState([]);
+  const [trivia, setTrivia] = useState(questionData);
+  const [questionNumber, setQuestionNumber] = useState(0);
 
-  useEffect(() => {
+  /* useEffect(() => {
     // Define the API endpoint and query parameters
     const apiUrl = "https://the-trivia-api.com/v2/questions";
     const limit = 10;
@@ -26,16 +28,24 @@ function QuestionPage() {
       .catch((err) => {
         console.log(err.message);
       });
-  }, []);
+  }, []); */
 
   return (
     <div className="QuestionPage">
+      <div className="">
+        <div>
+          <button>X</button>
+        </div>
+        <div className="">
+          <label for="q-count">Question</label>
+          <h2 id="q-count">1/10</h2>
+        </div>
+        <div className="">
+          <label for="q-count">Question</label>
+          <h2 id="q-count">5:00</h2>
+        </div>
+      </div>
       <h1>Random Trivia Questions</h1>
-      <ul>
-        {trivia.map((question, index) => (
-          <li key={index}>{question.text}</li>
-        ))}
-      </ul>
     </div>
   );
 }
