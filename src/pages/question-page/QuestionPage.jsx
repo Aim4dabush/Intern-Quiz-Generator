@@ -8,6 +8,7 @@ function QuestionPage() {
   const [trivia, setTrivia] = useState(questionData);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
+  const [timer, setTimer] = useState("5:00");
 
   const background = {
     backgroundImage: 'url("/src/assets/images/cool-background.png")',
@@ -95,14 +96,14 @@ function QuestionPage() {
           </Button>
         </Link>
 
-        <div className=" ">
+        <div className="col-cen">
           <label htmlFor="q-count">Question</label>
           <h2 id="q-count">{questionNumber + 1}/10</h2>
         </div>
 
-        <div className=" ">
+        <div className="col-cen">
           <label htmlFor="q-count">Time Left</label>
-          <h2 id="q-count">5:00</h2>
+          <h2 id="q-count">{timer}</h2>
         </div>
       </div>
 
