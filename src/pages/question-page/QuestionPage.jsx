@@ -7,6 +7,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 function QuestionPage() {
   const [trivia, setTrivia] = useState(questionData);
   const [questionNumber, setQuestionNumber] = useState(0);
+  const [userAnswers, setUserAnswers] = useState([]);
 
   const background = {
     backgroundImage: 'url("/src/assets/images/cool-background.png")',
@@ -22,6 +23,12 @@ function QuestionPage() {
       array[j] = temp;
     }
   }
+
+  function nextQuestion() {
+    setQuestionNumber(questionNumber + 1);
+  }
+
+  console.log(questionNumber);
 
   //assemble incorrect answers in random order
   const rightAnswerPosition = Math.floor(Math.random() * 4);
@@ -65,20 +72,17 @@ function QuestionPage() {
   }, []); */
 
   return (
-    <div
-      className="QuestionPage h-100 p-3 d-flex flex-column align-items-center"
-      style={background}
-    >
-      <div className="w-100 mb-3 flex-row justify-content-between ">
+    <div className="col-cen h-100 p-3" style={background}>
+      <div className="w-100 mb-3 flex-row justify-content-between col-cen ">
         <Link
-          className="d-flex justify-content-center"
+          className=" d-flex justify-content-center"
           style={{ width: "45px", height: "45px" }}
         >
-          <Button className="w-100 h-100">
+          <Button className="w-100 h-100 p-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
+              width="30"
+              height="30"
               fillRule="currentColor"
               className="bi bi-list"
               viewBox="0 0 16 16"
@@ -93,7 +97,7 @@ function QuestionPage() {
 
         <div className=" ">
           <label htmlFor="q-count">Question</label>
-          <h2 id="q-count">1/10</h2>
+          <h2 id="q-count">{questionNumber + 1}/10</h2>
         </div>
 
         <div className=" ">
@@ -102,28 +106,44 @@ function QuestionPage() {
         </div>
       </div>
 
-      <h1 className="d-inline bg-light rounded text-center p-2">
-        {trivia[questionNumber].question.text}
+      <h1
+        className="d-inline bg-light rounded text-center w-100 p-2 mb-4"
+        style={{ height: "200px", lineHeight: "160px" }}
+      >
+        <span
+          className="d-inline-block align-middle"
+          style={{ lineHeight: "normal" }}
+        >
+          {trivia[questionNumber].question.text}
+        </span>
       </h1>
 
-      <Container>
-        <Row>
-          <Col>
-            <Button className="w-100 h-100">{answers[0]}</Button>
+      <div className="w-100">
+        <Row className="mb-4" style={{ height: "150px" }}>
+          <Col xs={6}>
+            <Button className="w-100 h-100 fs-2" onClick={nextQuestion}>
+              {answers[0]}
+            </Button>
           </Col>
-          <Col>
-            <Button className="w-100 h-100">{answers[0]}</Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Button className="w-100 h-100">{answers[0]}</Button>
-          </Col>
-          <Col>
-            <Button className="w-100 h-100">{answers[0]}</Button>
+          <Col xs={6}>
+            <Button className="w-100 h-100 fs-2" onClick={nextQuestion}>
+              {answers[1]}
+            </Button>
           </Col>
         </Row>
-      </Container>
+        <Row style={{ height: "150px" }}>
+          <Col xs={6}>
+            <Button className="w-100 h-100 fs-2" onClick={nextQuestion}>
+              {answers[2]}
+            </Button>
+          </Col>
+          <Col xs={6}>
+            <Button className="w-100 h-100 fs-2" onClick={nextQuestion}>
+              {answers[3]}
+            </Button>
+          </Col>
+        </Row>
+      </div>
     </div>
   );
 }
