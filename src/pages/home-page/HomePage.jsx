@@ -14,6 +14,13 @@ function HomePage() {
       });
   }, []);
 
+  function formatText(category) {
+    return category
+      .split('_')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
   return (
     <div className="HomePage">
       <div className="content-container">
@@ -28,7 +35,7 @@ function HomePage() {
             <h4>Quiz Categories</h4>
             <ul className="category-items">
               {quizCategory.map((category) => (
-                <li className="list-items" key={category}>{category}</li>
+                <li className="list-items" key={category}>{formatText(category)}</li>
               ))}
             </ul>
           </div>

@@ -8,7 +8,6 @@
 
 .welcome-message {
     text-align: center;
-    margin-left: 200px;
     border-radius: 3%;
     padding: 90px;
     background-color: azure;
@@ -24,7 +23,6 @@
     height: 400px;
     text-align: center;
     padding: 60px;
-    margin-left: 200px;
     border-radius: 3%;
     background-color: azure;
     margin-top: 40px;
@@ -47,8 +45,14 @@
 }
 
 .list-items {
-    text-align: center;
+    margin-left: 55px;
+    font-size: 20px;
     width: 220px;
     height: 100px;
     padding-top: 20px;
+}
+
+.list-items:hover {
+    cursor: pointer;
+    color: blue;
 }
