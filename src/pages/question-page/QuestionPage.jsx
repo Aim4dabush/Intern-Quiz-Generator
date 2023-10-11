@@ -7,7 +7,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 function QuestionPage() {
   const [trivia, setTrivia] = useState(questionData);
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [userAnswers, setUserAnswers] = useState([]);
+  const [score, setScore] = useState(0);
   const [timer, setTimer] = useState("5:00");
 
   const background = {
