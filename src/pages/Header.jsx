@@ -14,12 +14,6 @@ export default function Header() {
             <h2 id="nav-item">
                 <Link to={`/register`}>REGISTER</Link>
             </h2>
-            <h2 id="nav-item">
-                <Link to={`/prepare`}>PREPARE</Link>
-            </h2>
-            <h2 id="nav-item">
-                <Link to={`/questions`}>QUESTIONS</Link>
-            </h2>
         </nav>
     );
 }
