@@ -2,8 +2,16 @@ import "./HomePage.css";
 
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <div>HomePage
+      <button id="toLogin" onClick={toLogin}   type="button">To Login</button>
+
+
+
+
+
+    </div>
   )
 }
+
 
 export default HomePage
