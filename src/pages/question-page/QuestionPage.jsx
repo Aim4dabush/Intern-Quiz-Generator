@@ -2,7 +2,11 @@ import "./QuestionPage.css"
 
 function QuestionPage() {
   return (
-    <div>QuestionPage</div>
+    <>
+      <div>QuestionPage</div>
+      HELLO
+    </>
+
   )
 }
 
