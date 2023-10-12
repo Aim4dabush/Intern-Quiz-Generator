@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 import "./HomePage.css";
 
 function HomePage() {
@@ -35,7 +36,9 @@ function HomePage() {
             <h4>Quiz Categories</h4>
             <ul className="category-items">
               {quizCategory.map((category) => (
-                <li className="list-items" key={category}>{formatText(category)}</li>
+                <li className="list-items" key={category}>{formatText(category)}
+                  <Link to={`/prepare`}></Link>
+                </li>
               ))}
             </ul>
           </div>
