@@ -12,7 +12,7 @@ function QuestionPage() {
   const [timer, setTimer] = useState("5:00");
 
   const background = {
-    backgroundImage: 'url("/src/assets/images/cool-background.png")',
+    backgroundImage: 'url("/assets/images/cool-background.png")',
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   };
