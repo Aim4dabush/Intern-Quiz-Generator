@@ -7,7 +7,7 @@ function FinishPage() {
   console.log(state);
 
   const background = {
-    backgroundImage: 'url("/src/assets/images/cool-background.png")',
+    backgroundImage: 'url("/assets/images/cool-background.png")',
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   };

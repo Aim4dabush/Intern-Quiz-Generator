@@ -5,7 +5,7 @@ import "./PrepPage.css";
 
 function PrepPage({ quizName, link }) {
   const background = {
-    backgroundImage: 'url("/src/assets/images/cool-background.png")',
+    backgroundImage: 'url("/assets/images/cool-background.png")',
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   };
