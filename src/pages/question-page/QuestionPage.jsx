@@ -1,8 +1,9 @@
 import "./QuestionPage.css";
 import questionData from "./QuestionData.json";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import Header from "./Header";
+import Question from "./Question";
+import Answers from "./Answers";
 
 function QuestionPage() {
   const [trivia, setTrivia] = useState(questionData);
@@ -25,8 +26,12 @@ function QuestionPage() {
     }
   }
 
-  function nextQuestion() {
+  function nextQuestion(answer) {
     setQuestionNumber(questionNumber + 1);
+
+    if (trivia[questionNumber].correctAnswer == answer) {
+      setScore(score + 1);
+    }
   }
 
   console.log(questionNumber);
@@ -74,77 +79,16 @@ function QuestionPage() {
 
   return (
     <div className="col-cen h-100 p-3" style={background}>
-      <div className="w-100 mb-3 flex-row justify-content-between col-cen ">
-        <Link
-          className=" d-flex justify-content-center"
-          style={{ width: "45px", height: "45px" }}
-        >
-          <Button className="w-100 h-100 p-0">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              fillRule="currentColor"
-              className="bi bi-list"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fillRule="evenodd"
-                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-              />
-            </svg>
-          </Button>
-        </Link>
+      <Header timer={timer} questionNumber={questionNumber} />
 
-        <div className="col-cen">
-          <label htmlFor="q-count">Question</label>
-          <h2 id="q-count">{questionNumber + 1}/10</h2>
-        </div>
+      <Question question={trivia[questionNumber].question.text} />
 
-        <div className="col-cen">
-          <label htmlFor="q-count">Time Left</label>
-          <h2 id="q-count">{timer}</h2>
-        </div>
-      </div>
-
-      <h1
-        className="d-inline bg-light rounded text-center w-100 p-2 mb-4"
-        style={{ height: "200px", lineHeight: "160px" }}
-      >
-        <span
-          className="d-inline-block align-middle"
-          style={{ lineHeight: "normal" }}
-        >
-          {trivia[questionNumber].question.text}
-        </span>
-      </h1>
-
-      <div className="w-100">
-        <Row className="mb-4" style={{ height: "150px" }}>
-          <Col xs={6}>
-            <Button className="w-100 h-100 fs-2" onClick={nextQuestion}>
-              {answers[0]}
-            </Button>
-          </Col>
-          <Col xs={6}>
-            <Button className="w-100 h-100 fs-2" onClick={nextQuestion}>
-              {answers[1]}
-            </Button>
-          </Col>
-        </Row>
-        <Row style={{ height: "150px" }}>
-          <Col xs={6}>
-            <Button className="w-100 h-100 fs-2" onClick={nextQuestion}>
-              {answers[2]}
-            </Button>
-          </Col>
-          <Col xs={6}>
-            <Button className="w-100 h-100 fs-2" onClick={nextQuestion}>
-              {answers[3]}
-            </Button>
-          </Col>
-        </Row>
-      </div>
+      <Answers
+        answers={answers}
+        questionNumber={questionNumber}
+        nextQuestion={nextQuestion}
+        score={score}
+      />
     </div>
   );
 }
