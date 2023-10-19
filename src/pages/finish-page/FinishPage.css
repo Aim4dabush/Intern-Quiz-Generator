@@ -1,0 +1,32 @@
+#root {
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    padding: 10px;
+    background-color: azure;
+    width: 400px;
+    margin-bottom: 60px;
+}
+
+.body {
+    display: flex;
+    justify-content: space-around;
+}
+
+.score {
+    background-color: azure;
+    text-align: center;
+    padding: 40px;
+    width: 200px;
+    height: 200px;
+}
+
+.result {
+    background-color: azure;
+    text-align: center;
+    padding: 40px;
+    width: 200px;
+    height: 200px;
+}
