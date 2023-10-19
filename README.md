@@ -28,6 +28,9 @@ Create a Quiz / Test Generator App. It will include a registration, login, subje
   - Kimberly Encinas
     - Github: [https://github.com/kimbencinas](https://github.com/kimbencinas)
     - LinkedIn: [https://www.linkedin.com/in/kimberly-encinas-656929252/](https://www.linkedin.com/in/kimberly-encinas-656929252/)
+  - Soraya Boza
+    - Github: [https://github.com/sorayaboza](https://github.com/sorayaboza)
+    - LinkedIn: [https://www.linkedin.com/in/soraya-boza-3753a7162/] (https://www.linkedin.com/in/soraya-boza-3753a7162/)
 
 ### Goals
 
