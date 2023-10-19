@@ -1,9 +1,7 @@
 import "./FinishPage.css";
 
 function FinishPage() {
-  return (
-    <div>FinishPage</div>
-  )
+  return <div>FinishPage</div>;
 }
 
-export default FinishPage
+export default FinishPage;
