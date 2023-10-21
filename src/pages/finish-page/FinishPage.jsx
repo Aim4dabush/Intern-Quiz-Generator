@@ -2,6 +2,15 @@ import React from 'react';
 import "./FinishPage.css";
 
 function FinishPage() {
+  fetch(`https://the-trivia-api.com/v2/questions/`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data || data.length === 0) {
+        console.log("No questions found");
+        return;
+      }
+
+    })
 
   return (
     <div className="FinishPage">
