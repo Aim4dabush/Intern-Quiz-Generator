@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./FinishPage.css";
 
 function FinishPage() {
+  const [score, setScore] = useState(0);
+
+  useEffect(() => {
   fetch(`https://the-trivia-api.com/v2/questions/`)
     .then((response) => response.json())
     .then((data) => {
@@ -10,7 +13,8 @@ function FinishPage() {
         return;
       }
 
-    })
+    });
+  }, []);
 
   return (
     <div className="FinishPage">
