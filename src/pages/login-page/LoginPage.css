@@ -1,13 +1,17 @@
-body {
+.bodyLogin {
+  display: flex;
     background-image: url('Firefly question mark wallpaper jazzy 5551.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
       font-family: Arial, Helvetica, sans-serif;
       background-color: #f0f0f0;
+      height: 100vh;
+      width: 100vw;
   }
 
   .container {
+      margin-top: 20px;
       max-width: 300px;
       max-height: 50vh;
       height: 50%;
@@ -16,7 +20,6 @@ body {
       background-color: #e29ab798;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      margin-top: 25vh;
       user-select: none;
   }
 
@@ -40,21 +43,6 @@ body {
       border-radius: 5px;
   }
 
-  button[type="submit"] {
-      width: 120px;
-      margin-left: 25%;
-      padding: 10px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-  }
-
-  button[type="submit"]:hover {
-      background-color: #0056b3;
-  }
-
   #username{
     width: 250px;
     min-width: 250px;
@@ -63,3 +51,25 @@ body {
     width: 250px;
     min-width: 250px;
   }
+
+  #loginBtn {
+    border: none;
+        padding: 10px 50px;
+        font-size: 44px;
+        position: relative;
+        background-color: #f8488ebe;
+        color: #4af1d6;
+        text-transform: uppercase;
+        border: 3px solid #4af1d6;
+        cursor: pointer;
+        transition: all 0.7s;
+        overflow: hidden;
+        border-radius: 100px;
+  }
+
+  #loginBtn:hover {
+    color: #38b3fa;
+    border: 3px solid #38b3fa
+  }
+
+  

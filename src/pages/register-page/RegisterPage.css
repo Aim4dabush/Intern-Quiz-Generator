@@ -1,0 +1,77 @@
+.bodyRegister {
+  background-image: url('RegisterBck.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 25vw;
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bckColor {
+  background-color: #313131; 
+  height: 100vh;
+  width: 100vw;
+}
+
+.containerRegister {
+  max-width: 40vw;
+  max-height: 50vh;
+  width: 30vw;
+  height: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #242424d8;
+  border-radius: 5px;
+  box-shadow: -15px 10px rgba(0, 0, 0, 0.288);
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.registerBtn {
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: #000000;
+  color: #FFFFFF;
+  border-radius: 8px;
+  padding: 14px 24px 16px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 3px;
+  margin-top: 50px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    background-color: #3131314b;
+    color: white;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#username-register{
+  width: 250px;
+  min-width: 250px;
+}
+#password-register{
+  width: 250px;
+  min-width: 250px;
+}

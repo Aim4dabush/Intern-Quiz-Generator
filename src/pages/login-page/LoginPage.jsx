@@ -1,6 +1,9 @@
-import "./LoginPage.css"
+import React, { useState } from "react";
+import RegisterPage from "../register-page/RegisterPage";
+import "./LoginPage.css";
+
 function LoginPage() {
-  const userDatabase = [
+  const [userDatabase, setUserDatabase] = useState([
     {
       username: "user1",
       password: "password1",
@@ -9,43 +12,50 @@ function LoginPage() {
       username: "user2",
       password: "password2",
     },
-  ];
-  function login() {
-    const usernameInput = document.getElementById("username").value;
-    const passwordInput = document.getElementById("password").value;
- console.log(usernameInput);
- console.log(passwordInput);
-    // Check if username exists
-    for (let i = 0; i < userDatabase.length; i++) {
-      if (
-        usernameInput === userDatabase[i].username &&
-        passwordInput === userDatabase[i].password
-      ) {
-        console.log(usernameInput + " is logged in"); 
-  
-        alert("Login Successful");
-        window.location.href = "/"; // Redirect to home.html
-        return; 
-      }
-    }
-    // If no matching user is found
-    alert("User Not Found or Invalid Password. Try Again");
+  ]);
+
+  const [usernameInput, setUsernameInput] = useState('');
+  const [passwordInput, setPasswordInput] = useState('');
+
+  function addUser(username, password) {
+    const newUser = {
+      username,
+      password,
+    };
+    setUserDatabase((prevUsers) => [...prevUsers, newUser]);
   }
+
+  function login(e) {
+    e.preventDefault(); 
+
+    const user = userDatabase.find(user => user.username === usernameInput && user.password === passwordInput);
+
+    if (user) {
+      alert("Login Successful");
+      // TODO: Redirect to the quiz page or dashboard
+    } else {
+      alert("User Not Found or Invalid Password. Try Again");
+    }
+  }
+
   return (
-    <div className="container">
+    <div className="bodyLogin">
+      <div className="container">
         <h2>Login</h2>
-        <form action="#" method="POST" id="loginForm">
-            <label htmlFor="username">Username:</label>
-            <input type="text" id="username" name="username" required/>
+        <form action="#" method="POST" onSubmit={login} id="loginForm">
+          <label htmlFor="username">Username:</label>
+          <input type="text" id="username" name="username" required value={usernameInput} onChange={e => setUsernameInput(e.target.value)} />
 
-            <label htmlFor="password">Password:</label>
-            <input type="password" id="password" name="password" required/>
+          <label htmlFor="password">Password:</label>
+          <input type="password" id="password" name="password" required value={passwordInput} onChange={e => setPasswordInput(e.target.value)} />
 
-            <button id="loginBtn" onClick={login} type="button">Login</button>
+          <button id="loginBtn" type="submit">
+            Login
+          </button>
         </form>
+      </div>
     </div>
-    
-  )
+  );
 }
 
-export default LoginPage
+export default LoginPage;

@@ -31,12 +31,16 @@ Create a Quiz / Test Generator App. It will include a registration, login, subje
   - Soraya Boza
     - Github: [https://github.com/sorayaboza](https://github.com/sorayaboza)
     - LinkedIn: [https://www.linkedin.com/in/soraya-boza-3753a7162/] (https://www.linkedin.com/in/soraya-boza-3753a7162/)
+  - Jamen Gilbreath
+    - Github:
+    - LinkedIn: 
 
 ### Goals
 
 - MVP (Minimum Viable Project)
-  - User can register information for login
-  - User can login after registering
+  - User can register information for login 
+  - User can login after registering 
+  <!-- user can log in but no register feature yet -->
   - User is navigated to a subject selection page for quiz
   - User will have 6 subjects to select
   - User will have a preparation page before the quiz begins
