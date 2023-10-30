@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./FinishPage.css";
 
 function FinishPage() {
+<<<<<<< HEAD
   const [userAnswer, setUserAnswer] = useState([]);
 
   useEffect(() => {
@@ -26,6 +27,21 @@ function FinishPage() {
         console.error(error);
       });
   }, [userAnswer]);
+=======
+  const [score, setScore] = useState(0);
+
+  useEffect(() => {
+  fetch(`https://the-trivia-api.com/v2/questions/`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data || data.length === 0) {
+        console.log("No questions found");
+        return;
+      }
+
+    });
+  }, []);
+>>>>>>> 18939fa3fc6746ffae8a5ccbd43f08f7e39e73d6
 
   return (
     <div className="FinishPage">
