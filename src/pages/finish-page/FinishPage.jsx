@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./FinishPage.css";
 
 function FinishPage() {
-  fetch(`https://the-trivia-api.com/v2/questions/`)
-    .then((response) => response.json())
-    .then((data) => {
-      if (!data || data.length === 0) {
-        console.log("No questions found");
-        return;
-      }
+  const [userAnswer, setUserAnswer] = useState([]);
 
-    })
+  useEffect(() => {
+    fetch(`https://the-trivia-api.com/v2/questions/`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data || data.length === 0) {
+          console.log("No questions found");
+          return;
+        }
+
+        const correctAnswer = data.reduce((count, question, index) => {
+          if (question.correctAnswer === userAnswer[index]) {
+            return count + 1;
+          }
+          return count;
+        }, 0);
+
+        console.log(`${correctAnswer}`);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [userAnswer]);
 
   return (
     <div className="FinishPage">
