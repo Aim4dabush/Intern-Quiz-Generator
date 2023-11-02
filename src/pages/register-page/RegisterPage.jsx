@@ -23,40 +23,6 @@ function RegisterPage({userDatabase, setUserDatabase}) {
     history.push('/login'); // Redirect to the login page
   }
 
-  function InnerComponent({ handleRegistration, setUsername, setPassword, username, password }) {
-    return (
-      <div className="bckColor">
-      <div className="bodyRegister">
-      <div className="containerRegister">
-        <label htmlFor="username">Username:</label>
-        <input 
-          type="text" 
-          id="username-register" 
-          name="username" 
-          required
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-  
-        <label htmlFor="password">Password:</label>
-        <input 
-          type="password" 
-          id="password-register" 
-          name="password" 
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-  
-        <button className="registerBtn" onClick={handleRegistration}>
-          Register
-        </button>
-      </div></div>
-    </div>
-    );
-  }
-
-
   return (
     <div>
         {/* Using InnerComponent here */}
@@ -72,3 +38,37 @@ function RegisterPage({userDatabase, setUserDatabase}) {
 }
 
 export default RegisterPage;
+
+function InnerComponent({ handleRegistration, setUsername, setPassword, username, password }) {
+  return (
+    <div className="bckColor">
+    <div className="bodyRegister">
+    <div className="containerRegister">
+      <label htmlFor="username">Username:</label>
+      <input 
+        type="text" 
+        id="username-register" 
+        name="username" 
+        required
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+
+      <label htmlFor="password">Password:</label>
+      <input 
+        type="password" 
+        id="password-register" 
+        name="password" 
+        required
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <button className="registerBtn" onClick={handleRegistration}>
+        Register
+      </button>
+    </div>
+    </div>
+  </div>
+  );
+}
