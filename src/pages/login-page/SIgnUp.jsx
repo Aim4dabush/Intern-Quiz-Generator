@@ -22,23 +22,23 @@ const SignUp = () => {
         <div className = "sign-in-container">
             <div className="bodyLogin">
       <div className="container" onSubmit={signUp}>
-        <h2>Login</h2>
+        <h2>Create acct</h2>
         <form action="#" method="POST" onSubmit={login} id="loginForm">
           <label htmlFor="username">Email</label>
           <input type="email" 
           id="username" 
           name="username" 
           required 
-          value={usernameInput} 
-          onChange={e => setUsernameInput(e.target.value)} />
+          value={email} 
+          onChange={e => setEmail(e.target.value)} />
 
           <label htmlFor="password">Password:</label>
           <input type="password" 
           id="password" 
           name="password" 
           required 
-          value={passwordInput} 
-          onChange={e => setPasswordInput(e.target.value)} />
+          value={password} 
+          onChange={e => setPassword(e.target.value)} />
 
           <button id="loginBtn" type="submit">
             Login
