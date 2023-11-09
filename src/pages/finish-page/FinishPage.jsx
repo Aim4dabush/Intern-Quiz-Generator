@@ -18,7 +18,11 @@ function FinishPage() {
       setScore(totalScore);
     };
 
-  });
+    calculateUserScore();
+  }, [userAnswer]);
+
+  const totalQuestions = questionData.length;
+  const scorePercentage = ((score / totalQuestions) * 100).toFixed(2);
 
   return (
     <div className="FinishPage">
@@ -28,7 +32,7 @@ function FinishPage() {
         </div>
         <div className="body">
           <div className="score">
-            <p>Score: {score}</p>
+            <p>Score: {percentage}%</p>
           </div>
           <div className="result">
             <p>You Got: {score}</p>
