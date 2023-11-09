@@ -3,9 +3,9 @@ import React from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import "C:\\VSCode Project Folder\\Intern-Quiz-Generator\\src\\pages\\login-page\\LoginPage.css";
 
-const SignIn = ({ auth }) => { // Ensure to pass `auth` as a prop if it's needed for signInWithEmailAndPassword
-    const [email, setEmail] = useState("test@testingemail.com");
-    const [password, setPassword] = useState("password12345");
+const SignIn = ({ auth }) => { 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const signIn = (e) => {
       e.preventDefault();

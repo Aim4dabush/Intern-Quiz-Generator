@@ -1,9 +1,11 @@
 
 import './RegisterPage.css';
 import React, { useState } from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 
-function RegisterPage({userDatabase, setUserDatabase}) {
+function RegisterPage({ auth }) {
   
   const [email, setEmail] = useState('');
 
@@ -11,16 +13,23 @@ function RegisterPage({userDatabase, setUserDatabase}) {
   const [registrationError, setRegistrationError] = useState('');
   const [registrationSuccess, setRegistrationSuccess] = useState('');
 
-  const handleRegistration = () => {
+const navigate = useNavigate();
+
+
+  const handleRegistration = (e) => {
+    e.preventDefault();
     if (email.trim() === '' || password.trim() === '') {
       setRegistrationError('Username and password cannot be empty.');
       return;
     }
 
-    onRegister(email, password); // Call the onRegister function to add the user
-
-    setRegistrationSuccess('Registration Successful');
-    history.push('/login'); // Redirect to the login page
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      setRegistrationSuccess('Registration Successful');
+      navigate('/login'); // Redirect to the login page after successful registration
+    }).catch((error) => {
+      setRegistrationError(error.message);
+    });
   }
 
   return (

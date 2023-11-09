@@ -3,7 +3,6 @@ import "./FinishPage.css";
 import questionData from './QuestionData.json';
 
 function FinishPage() {
-<<<<<<< HEAD
   const [userAnswer, setUserAnswer] = useState([]);
 
   useEffect(() => {
@@ -28,7 +27,7 @@ function FinishPage() {
         console.error(error);
       });
   }, [userAnswer]);
-=======
+
   const [score, setScore] = useState(0);
 
   useEffect(() => {
@@ -42,7 +41,7 @@ function FinishPage() {
 
     });
   }, []);
->>>>>>> 18939fa3fc6746ffae8a5ccbd43f08f7e39e73d6
+
 
   return (
     <div className="FinishPage">

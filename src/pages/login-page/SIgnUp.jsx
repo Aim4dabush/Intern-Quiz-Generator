@@ -1,15 +1,15 @@
 import { useState } from "react";
 import React from "react";
-import { signInWithEmailAndPassword } from "firebase/auth"; 
+import { createUserWithEmailAndPassword } from "firebase/auth"; 
 import "C:\\VSCode Project Folder\\Intern-Quiz-Generator\\src\\pages\\login-page\\LoginPage.css";
 
-const SignUp = () => {
+const SignUp = ({ auth }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const signUp = (e) => {
       e.preventDefault();
-      signInWithEmailAndPassword(auth, email, password)
+      createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential)
 
