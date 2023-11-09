@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import "./FinishPage.css";
-import questionData from './QuestionData.json';
 
 function FinishPage() {
   const [userAnswer, setUserAnswer] = useState([]);
@@ -10,7 +9,14 @@ function FinishPage() {
     const calculateUserScore = () => {
       let totalScore = 0;
 
-    }
+      questionData.forEach((question, index) => {
+        if (question.correctAnswer === userAnswer[index]) {
+          totalScore++;
+        }
+      });
+
+      setScore(totalScore);
+    };
 
   });
 
