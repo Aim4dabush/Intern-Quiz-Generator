@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import "./FinishPage.css";
-import questionData from './QuestionData.json';
+//import questionData from './QuestionData.json';
 
 function FinishPage() {
   const [userAnswer, setUserAnswer] = useState([]);
@@ -31,17 +31,15 @@ function FinishPage() {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-  fetch(`https://the-trivia-api.com/v2/questions/`)
-    .then((response) => response.json())
-    .then((data) => {
-      if (!data || data.length === 0) {
-        console.log("No questions found");
-        return;
-      }
-
-    });
+    fetch(`https://the-trivia-api.com/v2/questions/`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data || data.length === 0) {
+          console.log("No questions found");
+          return;
+        }
+      });
   }, []);
-
 
   return (
     <div className="FinishPage">
@@ -59,7 +57,7 @@ function FinishPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default FinishPage
+export default FinishPage;
