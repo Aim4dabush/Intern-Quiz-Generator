@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 import "C:\\VSCode Project Folder\\Intern-Quiz-Generator\\src\\pages\\login-page\\LoginPage.css";
 import { useState } from "react";
 import React from "react";
@@ -55,3 +53,4 @@ const SignIn = ({ auth }) => {
   );
 }
 export default SignIn;
+
