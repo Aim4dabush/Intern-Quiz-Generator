@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./FinishPage.css";
-import questionData from './QuestionData.json';
+// import questionData from './QuestionData.json';
 
 function FinishPage() {
   const [userAnswer, setUserAnswer] = useState([]);
