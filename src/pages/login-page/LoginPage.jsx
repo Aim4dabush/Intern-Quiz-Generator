@@ -1,16 +1,17 @@
-import "C:\\VSCode Project Folder\\Intern-Quiz-Generator\\src\\pages\\login-page\\LoginPage.css";
+import "./LoginPage.css";
 import { useState } from "react";
 import React from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
+import { provider, auth } from "../../firebase/firebase";
 
 
-const SignIn = ({ auth }) => { 
+const LoginPage = ( ) => { 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const signIn = (e) => {
       e.preventDefault();
-      signInWithEmailAndPassword(auth, email, password)
+      signInWithPopup(auth, provider)
         .then((userCredential) => {
           console.log(userCredential);
         }).catch((error) => {
@@ -33,6 +34,8 @@ const SignIn = ({ auth }) => {
                           onChange={e => setEmail(e.target.value)} 
                       />
 
+                      
+
                       <label htmlFor="password">Password:</label>
                       <input 
                           type="password" 
@@ -46,11 +49,15 @@ const SignIn = ({ auth }) => {
                       <button id="loginBtn" type="submit">
                           Login
                       </button>
+                      
+                      <button >
+                        Google Sign In
+                      </button>
                   </form>
               </div>
           </div>
       </div>
   );
 }
-export default SignIn;
+export default LoginPage;
 
